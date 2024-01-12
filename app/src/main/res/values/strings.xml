@@ -1,0 +1,80 @@
+<resources>
+    <!-- Aanvullende items -->
+    <string name="str_kruditeiten">Kruditeiten</string>
+    <string name="str_sauce">Saus</string>
+    <string name="str_drinks">Drankjes</string>
+    <string name="str_extras">Extras</string>
+
+    <!-- Je huidige strings -->
+    <string name="app_name">Snack Fl</string>
+    <string name="str_pick">Kies</string>
+    <string name="str_btn_order">Bestelling plaatsen</string>
+
+    <!-- Toppings -->
+    <string-array name="toppings">
+        <item>Sandwish</item>
+        <item>Hamburger</item>
+        <item>Durum</item>
+        <item>Friet</item>
+        <item>Kapsalon</item>
+    </string-array>
+
+    <!-- Maten -->
+    <string-array name="sizes">
+        <item>Klein</item>
+        <item>Middelgroot</item>
+        <item>Groot</item>
+    </string-array>
+
+    <string-array name="kruditeiten">
+        <item>Salade</item>
+        <item>Tomaat</item>
+        <item>Mais</item>
+        <item>Wortels</item>
+        <item>uien</item>
+        <item></item>
+    </string-array>
+
+    <string-array name="sauce">
+        <item>Ketchup</item>
+        <item>Curry Ketchup</item>
+        <item>Mayonaise</item>
+        <item>Barbecue</item>
+        <item>Samourai</item>
+        <item>Brazil</item>
+        <item>Harissa</item>
+        <item>Pili Pili</item>
+        <item>Cocktail</item>
+    </string-array>
+
+
+    <string-array name="dranks">
+        <item>Coca-Cola</item>
+        <item>Fanta</item>
+        <item>Fanta exotic</item>
+        <item>SPA</item>
+        <item>Tropico</item>
+        <item>Poms</item>
+        <item>Hawai</item>
+        <item>Oasis</item>
+        <item>Oasis Appel</item>
+        <item>Oasis Casis</item>
+        <item>Oasis Aardbij</item>
+        <item>Ice Tea</item>
+        <item>Ice Tea Perzik</item>
+        <!-- ... -->
+    </string-array>
+
+    <!-- Extra's -->
+    <string-array name="extras">
+        <item>Feta</item>
+        <item>Cheddar</item>
+        <item>Olijven</item>
+        <item>Mozzarella</item>
+        <item>Peper</item>
+        <item>Gefrituurde ajuinen</item>
+        <!-- ... -->
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
