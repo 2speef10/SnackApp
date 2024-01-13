@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- res/layout/order_layout.xml -->
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Voeg hier de elementen toe om de bestelling weer te geven -->
+
+        <!-- Bijvoorbeeld, een TextView om de geselecteerde snacks weer te geven -->
+        <TextView
+            android:id="@+id/tvSelectedSnacks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geselecteerde snacks: "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Een RecyclerView om de geselecteerde snacks weer te geven -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewBestellingen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddToBag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <!-- Voeg andere views toe, zoals prijsinformatie, levertijd, enzovoort -->
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
