@@ -6,16 +6,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.snackapp.DAO.BestellingDao;
 import com.example.snackapp.Fragment.OrderFragment;
 import com.example.snackapp.R;
+import com.example.snackapp.Views.BestellingViewModel;
 
 public class MainActivity extends AppCompatActivity {
     Spinner toppings;
@@ -56,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 onClickAfronden();
             }
         });
+        AddToBag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Call the method to add the order to the database
+                onClickAddToBag();
+            }
+        });
     }
 
     public void onClickAfronden() {
@@ -78,4 +89,31 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.coordinator, orderFragment).commit();
     }
+    private void onClickAddToBag() {
+        // Haal geselecteerde opties op
+        String selectedTopping = toppings.getSelectedItem().toString();
+        String selectedSize = size.getSelectedItem().toString();
+        String selectedSauce = Sauce.getSelectedItem().toString();
+        String selectedHerbs = kruditeit.getSelectedItem().toString();
+        String selectedExtras = extras.getSelectedItem().toString();
+        String selectedDrinks = dranks.getSelectedItem().toString();
+
+        // Maak een Bestelling object aan met de geselecteerde opties
+        Bestelling bestelling = new Bestelling(selectedTopping, selectedSize, selectedSauce, selectedHerbs, selectedExtras, selectedDrinks);
+
+        // Roep een methode aan om de bestelling toe te voegen aan de database
+        voegBestellingToeAanDatabase(bestelling);
+    }
+    private void voegBestellingToeAanDatabase(Bestelling bestelling) {
+        // Get the BestellingDao from your Room database instance
+        BestellingDao bestellingDao = DatabaseHelper.getInstance(this).getBestellingDao();
+
+        // Insert the order into the database using Executor for background thread
+        BestellingViewModel bestellingViewModel = new ViewModelProvider(this).get(BestellingViewModel.class);
+        bestellingViewModel.insert(bestelling);
+
+        // Optionally, you can show a message or perform additional actions after adding to the database
+        Toast.makeText(this, "Bestelling toegevoegd ", Toast.LENGTH_SHORT).show();
+    }
+
 }

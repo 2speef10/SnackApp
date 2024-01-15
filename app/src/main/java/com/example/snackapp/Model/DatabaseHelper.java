@@ -34,20 +34,25 @@ public abstract class DatabaseHelper extends RoomDatabase {
         @Override
         public void onOpen(SupportSQLiteDatabase db) {
             super.onOpen(db);
-            Log.d(TAG, "Database opened");
-
-            // Ensure that the database is not closed prematurely during initialization
-            if (!INSTANCE.isOpen()) {
-                Log.e(TAG, "Database closed prematurely during initialization");
-                // You might want to handle this case appropriately
+            Log.d(TAG, "Database geopend");
+            // Zorg ervoor dat de database niet voortijdig wordt gesloten tijdens initialisatie
+            if (!db.isOpen()) {
+                Log.e(TAG, "Database is voortijdig gesloten tijdens initialisatie");
+                // Handel dit geval op de juiste manier af, gooi een uitzondering of neem corrigerende maatregelen
             }
         }
 
         @Override
         public void onCreate(SupportSQLiteDatabase db) {
             super.onCreate(db);
-            Log.d(TAG, "Database created");
-            // No need for getWritableDatabase(); you already have access to db here
+            Log.d(TAG, "Database aangemaakt");
+
+            // Initialiseer tabellen of voer initiële gegevensinvoer uit indien nodig
+            // Voorbeeld: db.execSQL("CREATE TABLE IF NOT EXISTS ...");
+
+            // Geen noodzaak voor getWritableDatabase(); je hebt hier al toegang tot db
         }
     };
 }
+
+

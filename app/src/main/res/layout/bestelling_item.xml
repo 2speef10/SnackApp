@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- LinearLayout voor bestelling_item -->
+    <LinearLayout
+        android:id="@+id/linearLayoutBestellingItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textViewTopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topping: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewToppingValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textViewSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Size: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewSizeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Placeholder voor Sauce -->
+        <TextView
+            android:id="@+id/textViewSauce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sauce: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewSauceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Placeholder voor Kruidigheid -->
+        <TextView
+            android:id="@+id/textViewSpiceLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spice Level: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewSpiceLevelValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Placeholder voor Extras -->
+        <TextView
+            android:id="@+id/textViewExtras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Extras: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewExtrasValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Placeholder voor Drank -->
+        <TextView
+            android:id="@+id/textViewDrank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drank: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewDrankValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Voeg hier andere weergave-elementen toe voor andere velden van de bestelling -->
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -67,6 +67,7 @@
 
     <!-- Extra's -->
     <string-array name="extras">
+        <item>Geen</item>
         <item>Feta</item>
         <item>Cheddar</item>
         <item>Olijven</item>

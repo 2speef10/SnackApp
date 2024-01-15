@@ -20,14 +20,14 @@ public class BestellingAdapter extends RecyclerView.Adapter<BestellingAdapter.Be
     private List<Bestelling> bestellingen;
 
     public BestellingAdapter() {
-        this.bestellingen = new ArrayList<Bestelling>();
+        this.bestellingen = new ArrayList<>();
     }
 
     @NonNull
     @Override
     public BestellingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Hier kun je direct de View van activity_main.xml inflaten
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main, parent, false);
+        // Hier moet je de View van bestelling_item.xml inflaten
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.bestelling_item, parent, false);
         return new BestellingViewHolder(itemView);
     }
 
@@ -35,12 +35,8 @@ public class BestellingAdapter extends RecyclerView.Adapter<BestellingAdapter.Be
     public void onBindViewHolder(@NonNull BestellingViewHolder holder, int position) {
         Bestelling currentBestelling = bestellingen.get(position);
 
-        // Hier kun je direct naar de Spinners in activity_main.xml verwijzen
-        holder.toppingSpinner.setSelection(getIndex(holder.toppingSpinner, currentBestelling.getTopping()));
-        holder.sizeSpinner.setSelection(getIndex(holder.sizeSpinner, currentBestelling.getSize()));
-        // Voeg hier de andere velden toe
-
-        // Je kunt hier ook klikgebeurtenissen toevoegen als dat nodig is
+        // Hier kun je de gegevens van de huidige bestelling instellen op de ViewHolder
+        holder.bind(currentBestelling);
     }
 
     @Override
@@ -49,31 +45,38 @@ public class BestellingAdapter extends RecyclerView.Adapter<BestellingAdapter.Be
     }
 
     static class BestellingViewHolder extends RecyclerView.ViewHolder {
-        private Spinner toppingSpinner;
-        private Spinner sizeSpinner;
-        // Voeg hier de andere Spinners toe voor de overige velden
+        private TextView toppingTextView;
+        private TextView sizeTextView;
+        private TextView sauceTextView; // Voeg de andere TextViews toe voor de overige velden
+        private TextView spiceLevelTextView;
+        private TextView extrasTextView;
+        private TextView drankTextView;
+
 
         public BestellingViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Hier kun je direct de Spinners in activity_main.xml vinden
-            toppingSpinner = itemView.findViewById(R.id.spinnerToppings);
-            sizeSpinner = itemView.findViewById(R.id.spinnerSizes);
-            // Voeg hier de andere Spinners toe voor de overige velden
+            // Hier kun je de TextViews in bestelling_item.xml vinden
+            toppingTextView = itemView.findViewById(R.id.textViewToppingValue);
+            sizeTextView = itemView.findViewById(R.id.textViewSizeValue);
+            sauceTextView = itemView.findViewById(R.id.textViewSauceValue); // Voeg de andere TextViews toe
+            spiceLevelTextView = itemView.findViewById(R.id.textViewSpiceLevelValue);
+            extrasTextView = itemView.findViewById(R.id.textViewExtrasValue);
+            drankTextView = itemView.findViewById(R.id.textViewDrankValue);
+        }
+
+        // Deze methode bindt de gegevens van de huidige bestelling aan de Views
+        public void bind(Bestelling bestelling) {
+            toppingTextView.setText(bestelling.getTopping());
+            sizeTextView.setText(bestelling.getSize());
+            // Stel hier de andere velden in
         }
     }
 
-    // Hulpmethode om de index van een item in de Spinner te vinden
-    private int getIndex(Spinner spinner, String value) {
-        for (int i = 0; i < spinner.getCount(); i++) {
-            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(value)) {
-                return i;
-            }
-        }
-        return 0;
-    }
-    public void AddItems(List<Bestelling>newBestellingen){
-        this.bestellingen = new ArrayList<Bestelling>();
+    public void AddItems(List<Bestelling> newBestellingen) {
+        this.bestellingen = new ArrayList<>();
         this.bestellingen.addAll(newBestellingen);
     }
 }
+
+
 
