@@ -19,6 +19,12 @@ public class BestellingAdapter extends RecyclerView.Adapter<BestellingAdapter.Be
 
     private List<Bestelling> bestellingen;
 
+    public void setFilteredList(List<Bestelling>filteredList){
+        this.bestellingen = filteredList;
+        notifyDataSetChanged();
+
+    }
+
     public BestellingAdapter() {
         this.bestellingen = new ArrayList<>();
     }
@@ -68,14 +74,20 @@ public class BestellingAdapter extends RecyclerView.Adapter<BestellingAdapter.Be
         public void bind(Bestelling bestelling) {
             toppingTextView.setText(bestelling.getTopping());
             sizeTextView.setText(bestelling.getSize());
-            // Stel hier de andere velden in
+            sauceTextView.setText(bestelling.getSauce()); // Zorg ervoor dat de juiste getter wordt gebruikt
+            spiceLevelTextView.setText(bestelling.getHerbs());
+            extrasTextView.setText(bestelling.getExtras());
+            drankTextView.setText(bestelling.getDrinks());
         }
+
     }
 
+
     public void AddItems(List<Bestelling> newBestellingen) {
-        this.bestellingen = new ArrayList<>();
         this.bestellingen.addAll(newBestellingen);
+        notifyDataSetChanged();
     }
+
 }
 
 

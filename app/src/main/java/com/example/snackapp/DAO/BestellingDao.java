@@ -30,5 +30,8 @@ public interface BestellingDao {
 
     @Query("DELETE FROM bestelling_table")
     void deleteAllBestellingen();
+
+    @Query("SELECT * FROM bestelling_table WHERE sauce LIKE :sauce")
+    LiveData<List <Bestelling>> getBestellingBySauce (String sauce);
 }
 

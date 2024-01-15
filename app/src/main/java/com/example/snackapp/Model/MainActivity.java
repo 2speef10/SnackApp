@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
+
         // Afronden-knop klikgebeurtenis
         afronden = findViewById(R.id.btnAfronden);
         AddToBag = findViewById(R.id.btnAddToBag);
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 onClickAddToBag();
             }
         });
+
     }
 
     public void onClickAfronden() {

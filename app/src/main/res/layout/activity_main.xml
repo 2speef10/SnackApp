@@ -30,27 +30,11 @@ android:layout_height="match_parent">
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Login Button -->
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"/>
 
-            <!-- Register Button -->
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:layout_toStartOf="@id/btnLogin"
-                android:layout_marginEnd="16dp"/>
         </RelativeLayout>
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
